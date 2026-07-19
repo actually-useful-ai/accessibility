@@ -25,7 +25,8 @@ afterAll(() => {
 });
 
 describe('runAudit', () => {
-  it('reports no WCAG A or AA violations for valid markup', async () => {
+  // Automated axe results cover configured rules only; they do not establish full WCAG conformance.
+  it('reports no axe-detected violations for configured rules on valid markup', async () => {
     setMarkup(`
       <main id="fixture">
         <h1>Account settings</h1>

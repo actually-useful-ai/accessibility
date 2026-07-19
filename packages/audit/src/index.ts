@@ -100,6 +100,7 @@ function buildAuditContext(
  * @param context - The element context to audit (HTMLElement, selector, document, etc.)
  * @param options - Optional audit configuration
  * @returns Structured audit results including violations, passes, and a summary
+ * @remarks Automated axe results cover configured rules only; they do not establish full WCAG conformance.
  *
  * @example
  * ```ts
