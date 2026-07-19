@@ -1,0 +1,19 @@
+{
+  "name": "accessibility",
+  "version": "1.0.0",
+  "description": "Review and improve web accessibility with evidence-based checks and manual verification.",
+  "author": {
+    "name": "Luke Steuber",
+    "url": "https://lukesteuber.com/"
+  },
+  "homepage": "https://github.com/lukeslp/accessibility-devkit#readme",
+  "repository": "https://github.com/lukeslp/accessibility-devkit",
+  "license": "MIT",
+  "keywords": [
+    "accessibility",
+    "wcag-2.2",
+    "aria",
+    "keyboard",
+    "screen-reader"
+  ]
+}

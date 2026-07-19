@@ -1,0 +1,43 @@
+{
+  "name": "accessibility",
+  "version": "1.0.0",
+  "description": "Review and improve web accessibility with evidence-based checks and manual verification.",
+  "author": {
+    "name": "Luke Steuber",
+    "url": "https://lukesteuber.com/"
+  },
+  "homepage": "https://github.com/lukeslp/accessibility-devkit#readme",
+  "repository": "https://github.com/lukeslp/accessibility-devkit",
+  "license": "MIT",
+  "keywords": [
+    "accessibility",
+    "wcag-2.2",
+    "aria",
+    "keyboard",
+    "screen-reader",
+    "inclusive-design"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Accessibility",
+    "shortDescription": "Review and improve web accessibility",
+    "longDescription": "Assess web interfaces with native semantics, keyboard and assistive-technology checks, and a clear manual verification plan.",
+    "developerName": "Luke Steuber",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Interactive",
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/lukeslp/accessibility-devkit#readme",
+    "privacyPolicyURL": "https://github.com/lukeslp/accessibility-devkit/blob/master/LICENSE",
+    "termsOfServiceURL": "https://github.com/lukeslp/accessibility-devkit/blob/master/LICENSE",
+    "defaultPrompt": [
+      "Review this interface for accessibility barriers",
+      "Fix keyboard and focus behavior in this component",
+      "Plan manual accessibility verification for this flow"
+    ],
+    "brandColor": "#005A9C",
+    "screenshots": []
+  }
+}

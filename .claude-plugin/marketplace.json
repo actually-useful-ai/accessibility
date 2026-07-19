@@ -1,0 +1,17 @@
+{
+  "name": "accessibility-devkit",
+  "owner": {
+    "name": "Luke Steuber"
+  },
+  "plugins": [
+    {
+      "name": "accessibility",
+      "description": "Review and improve web accessibility with evidence-based checks and manual verification.",
+      "version": "1.0.0",
+      "source": "./",
+      "author": {
+        "name": "Luke Steuber"
+      }
+    }
+  ]
+}

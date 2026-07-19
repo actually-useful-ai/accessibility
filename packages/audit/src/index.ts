@@ -58,6 +58,38 @@ function buildSummary(violations: axe.Result[]): AuditViolationSummary {
   };
 }
 
+function isContextObject(
+  context: axe.ElementContext
+): context is axe.ContextObject {
+  return (
+    typeof context === 'object' &&
+    context !== null &&
+    !Array.isArray(context) &&
+    !('nodeType' in context) &&
+    ('include' in context || 'exclude' in context)
+  );
+}
+
+function buildAuditContext(
+  context: axe.ElementContext,
+  include?: string[],
+  exclude?: string[]
+): axe.ElementContext {
+  if (!include?.length && !exclude?.length) return context;
+
+  const existing = isContextObject(context) ? context : { include: context };
+  const resolvedInclude = include?.length ? include : existing.include;
+  const resolvedExclude = exclude?.length ? exclude : existing.exclude;
+
+  if (resolvedInclude) {
+    return resolvedExclude
+      ? { include: resolvedInclude, exclude: resolvedExclude }
+      : { include: resolvedInclude };
+  }
+
+  return { exclude: resolvedExclude! };
+}
+
 // ============================================================
 // Core API
 // ============================================================
@@ -68,6 +100,7 @@ function buildSummary(violations: axe.Result[]): AuditViolationSummary {
  * @param context - The element context to audit (HTMLElement, selector, document, etc.)
  * @param options - Optional audit configuration
  * @returns Structured audit results including violations, passes, and a summary
+ * @remarks Automated axe results cover configured rules only; they do not establish full WCAG conformance.
  *
  * @example
  * ```ts
@@ -88,10 +121,9 @@ export async function runAudit(
     },
   };
 
-  if (include?.length) (runOptions as any).include = include;
-  if (exclude?.length) (runOptions as any).exclude = exclude;
+  const auditContext = buildAuditContext(context, include, exclude);
 
-  const results = await axe.run(context, runOptions);
+  const results = await axe.run(auditContext, runOptions);
 
   return {
     violations: results.violations,
